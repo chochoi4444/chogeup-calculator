@@ -339,8 +339,6 @@
   /* ---------- 저장 / 불러오기 (실패해도 동작) ---------- */
   function save(data) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {} }
   function load() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (e) { return null; } }
-  function clear() { try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} }
-
   /* ---------- salary/.env 기본값으로 폼 채우기 ---------- */
   var CONFIG = window.CHOGEUP_CONFIG || {};
   if (CONFIG.start) $('start-time').value = CONFIG.start;
@@ -476,7 +474,6 @@
 
   function backToForm() {
     clearInterval(liveTimer);
-    clear();
     $('live').hidden = true;
     $('landing').hidden = false;
     $('header-cta').hidden = false;
@@ -488,13 +485,12 @@
     if (!$('live').hidden) { e.preventDefault(); backToForm(); }
   });
 
-  // 이전에 입력한 값이 있으면 바로 실시간 화면으로
+  // 항상 입력 화면에서 시작. salary/.env 값이 없을 때만 지난번 입력값으로 폼을 채움
   var saved = load();
-  if (saved && saved.start && saved.end && saved.salary) {
+  if (!CONFIG.salary && saved && saved.start && saved.end && saved.salary) {
     $('start-time').value = saved.start;
     $('end-time').value = saved.end;
     $('salary').value = Number(saved.salary).toLocaleString('ko-KR');
-    showLive(saved);
   }
 })();
 </script>
