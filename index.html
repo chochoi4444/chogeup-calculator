@@ -157,7 +157,7 @@
     @keyframes pop { from { transform: scale(.6); opacity: 0; } }
 
     /* ---------- 결과(실시간) 화면 ---------- */
-    .live { padding: 24px 0 48px; }
+    .live { padding: 24px 0 48px; scroll-margin-top: 16px; }
     .live-head { text-align: center; margin-bottom: 24px; }
     .status-pill {
       display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700;
@@ -213,7 +213,8 @@
 </header>
 
 <!-- =================== 1. 랜딩 화면 =================== -->
-<main id="landing">
+<main>
+<div id="landing">
   <div class="hero">
     <div class="wrap">
       <div>
@@ -284,10 +285,10 @@
       </form>
     </div>
   </section>
-</main>
+</div>
 
-<!-- =================== 2. 실시간 결과 화면 =================== -->
-<main id="live" class="live" hidden>
+<!-- =================== 2. 실시간 결과 (폼 아래에 이어서 표시) =================== -->
+<section id="live" class="live" hidden>
   <div class="wrap">
     <div class="live-head">
       <span class="status-pill" id="status-pill"><span class="dot"></span><span id="status-text">근무 중</span></span>
@@ -311,6 +312,7 @@
       <button type="button" class="btn ghost" id="reset-btn">다시 입력하기</button>
     </div>
   </div>
+</section>
 </main>
 
 <footer>© 초급 계산기 · 세후 월급 ÷ 이번 달 평일 수 기준으로 계산합니다 (공휴일 미반영).</footer>
@@ -417,11 +419,8 @@
   var liveTimer = null;
 
   function showLive(data) {
-    clearInterval(demoTimer);
-    $('landing').hidden = true;
-    $('header-cta').hidden = true;
     $('live').hidden = false;
-    window.scrollTo(0, 0);
+    $('live').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     var startMin = toMinutes(data.start), endMin = toMinutes(data.end);
     var shiftMin = endMin > startMin ? endMin - startMin : endMin + 1440 - startMin;
@@ -475,15 +474,23 @@
   function backToForm() {
     clearInterval(liveTimer);
     $('live').hidden = true;
-    $('landing').hidden = false;
-    $('header-cta').hidden = false;
-    location.hash = 'start';
+    $('start').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   $('reset-btn').addEventListener('click', backToForm);
   $('home-link').addEventListener('click', function (e) {
-    if (!$('live').hidden) { e.preventDefault(); backToForm(); }
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+  $('header-cta').addEventListener('click', function (e) {
+    e.preventDefault();
+    $('start').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // 열 때마다 페이지 맨 위(히어로)부터 보여주기
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  window.scrollTo(0, 0);
 
   // 항상 입력 화면에서 시작. salary/.env 값이 없을 때만 지난번 입력값으로 폼을 채움
   var saved = load();
