@@ -326,6 +326,8 @@
   </div>
 </div>
 
+<!-- npm start 로 실행하면 salary/.env 값이 담긴 config.js 가 제공됩니다 (파일로 직접 열면 없어도 동작) -->
+<script src="config.js"></script>
 <script>
 (function () {
   var STORAGE_KEY = 'chogeup-calculator';
@@ -338,6 +340,12 @@
   function save(data) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {} }
   function load() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (e) { return null; } }
   function clear() { try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} }
+
+  /* ---------- salary/.env 기본값으로 폼 채우기 ---------- */
+  var CONFIG = window.CHOGEUP_CONFIG || {};
+  if (CONFIG.start) $('start-time').value = CONFIG.start;
+  if (CONFIG.end) $('end-time').value = CONFIG.end;
+  if (CONFIG.salary) $('salary').value = Number(CONFIG.salary).toLocaleString('ko-KR');
 
   /* ---------- 랜딩 데모 숫자 ---------- */
   var demoTimer = setInterval(function () {

@@ -1,0 +1,9 @@
+{
+  "name": "chogeup-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "지금 나는 얼마를 벌고 있나 — 초 단위 월급 계산기",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
