@@ -1,0 +1,38 @@
+초급 계산기 — 랜딩 페이지 이미지 생성 프롬프트
+각 프롬프트 블록을 그대로 복사해 이미지 생성 AI(Midjourney, DALL·E, Firefly 등)에 붙여넣으세요.
+생성한 이미지는 index.html 옆 images/ 폴더에 지정된 파일명으로 저장하면 자동으로 표시됩니다.
+공통 팔레트: 크림 #FBF8F4 · 핑크 #FFD6E0 · 민트 #CDEFE3 · 라벤더 #E3DAFB · 옐로 #FFF1C1 · 스카이 #D6ECFF
+
+==================================================
+[1] 히어로 메인 이미지 → images/hero.png (정사각형 1:1)
+==================================================
+Minimal flat illustration of a cheerful young office worker sitting at a tidy desk with a laptop, looking at a large friendly wall clock while small golden coins float upward one by one like bubbles, soft pastel palette of lavender, mint, baby pink, butter yellow and sky blue on a cream background, rounded shapes, gentle soft shadows, clean vector style, lots of negative space, calm and playful mood, no text, square 1:1
+
+==================================================
+[2] 히어로 이미지 (3D 버전, 대체용) → images/hero.png (정사각형 1:1)
+==================================================
+Cute 3D clay render of a pastel alarm clock with a coin slot on top, shiny gold coins dropping into it one per second, small motion trails, soft matte clay texture, lavender and mint color scheme with baby pink accents, cream studio background, soft diffused lighting, centered composition, minimal and adorable, no text, square 1:1
+
+==================================================
+[3] "일해라 도비야" 팝업 캐릭터 → images/dobby.png (정사각형 1:1, 투명 배경 권장)
+==================================================
+Adorable original small house-elf-like mascot character with big round ears and big sparkly eyes, wearing a single pastel striped sock on its head as a hat, holding a tiny laptop and giving a determined thumbs up, ready to work hard, minimal flat vector sticker style, pastel lavender, mint and pink colors, thick soft outlines, simple, transparent background, no text, square 1:1
+
+==================================================
+[4] 진행 방식 아이콘 3종 → images/step-1.png, step-2.png, step-3.png (정사각형 1:1)
+==================================================
+Step 1: Minimal pastel flat icon of a clock and a salary envelope side by side, baby pink rounded square background, soft shadow, clean vector, no text, square 1:1
+
+Step 2: Minimal pastel flat icon of a calendar with weekdays highlighted and a small division symbol, butter yellow rounded square background, soft shadow, clean vector, no text, square 1:1
+
+Step 3: Minimal pastel flat icon of a stopwatch with coins stacking up beside it, mint green rounded square background, soft shadow, clean vector, no text, square 1:1
+
+==================================================
+[5] SNS 공유용 썸네일 (OG 이미지) → images/og.png (1200x630, 가로 1.91:1)
+==================================================
+Wide minimal pastel banner illustration, a large soft lavender clock on the right with gold coins gently floating out of it, a small happy office worker on the left looking amazed, cream background with subtle mint and pink blob shapes, flat vector style, plenty of empty space on the left side for a headline, no text, aspect ratio 1.91:1
+
+==================================================
+[6] 배경 장식 패턴 (선택) → images/pattern.png (정사각형, 타일 반복)
+==================================================
+Seamless repeating pattern of tiny pastel coins, small clocks and sparkles scattered loosely, very light and airy, low contrast, lavender, mint, pink and butter yellow on cream background, minimal flat vector, suitable as a subtle website background, seamless tile
